@@ -1,0 +1,16 @@
+unset:
+  normal: ["d", "D", "t"]
+set:
+  normal:
+    H: "tab-prev"
+    L: "tab-next"
+    dh: "back"
+    dl: "forward"
+    dd: "tab-close"
+    dp: "tab-pin"
+    dc: "tab-clone"
+    dm: "mode-enter passthrough"
+    du: "undo"
+    dg: "tab-give"
+    dv: "tab-move"
+    de: "download-clear"

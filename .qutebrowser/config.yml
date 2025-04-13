@@ -1,0 +1,35 @@
+# Configs with dictionary arguments must be defined using `[{ ... }]`.
+
+content:
+  blocking:
+    method: "both"
+  default_encoding: "utf-8"
+  geolocation: false
+fonts:
+  hints: "bold 14pt default_family"
+  statusbar: "16pt default_family"
+  tabs:
+    selected: "14pt default_family"
+    unselected: "14pt default_family"
+hints:
+  chars: "aoeuhtns"
+  mode: "letter"
+url:
+  start_pages:
+    - "https://calendar.google.com/calendar/u/0/r"
+    - "https://calendar.google.com/calendar/u/0/r/tasks"
+    - "about:blank"
+  default_page: "about:blank"
+  searchengines: [{
+    "DEFAULT": "https://google.com/search?hl=en&q={}",
+    "=": "https://www.wolframalpha.com/input?i={}",
+    "?": "https://en.wikipedia.org/wiki/{}",
+    "nix": "https://search.nixos.org/packages?channel=24.05&from=0&size=50&sort=relevance&type=packages&query={}"
+  }]
+tabs:
+  padding: [{
+    "bottom": 3,
+    "left": 5,
+    "right": 5,
+    "top": 3,
+  }]
