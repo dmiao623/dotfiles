@@ -19,18 +19,23 @@
 
       environment.systemPackages = with pkgs; [
         bat
+        discord
         eza
         fzf
         gcc
         git
+        htop
         kitty
         lf
         millet
         mkalias
         neofetch
         neovim
+        nodejs_23
         obsidian
         python3Full
+        skimpdf
+        spotify
         tmux
         yadm
         zsh-syntax-highlighting
@@ -49,6 +54,7 @@
           "smlnj"
         ];
         masApps = {
+          "amphetamine" = 937984704;
           "goodnotes" = 1444383602;
         };
         onActivation.cleanup = "zap";
@@ -84,8 +90,8 @@
         dock.autohide = true;
         dock.persistent-apps = [
           "/Applications/qutebrowser.app"
-          "/Applications/spotify.app"
           "${pkgs.kitty}/Applications/kitty.app"
+          "${pkgs.spotify}/Applications/spotify.app"
         ];
         NSGlobalDomain.AppleICUForce24HourTime = true;
       };
