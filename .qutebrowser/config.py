@@ -8,7 +8,6 @@ config.load_autoconfig()
 ################################
 
 with open(config_dir + "config.yml", "r") as f:
-# with open("config.yml", "r") as f:
   yaml_data = yaml.safe_load(f)
 
 def dict_attrs(obj, path=""):
@@ -42,7 +41,8 @@ c.bindings.commands = yaml_data["set"]
 ################################
 
 add_configs = [
-  "nord-qutebrowser.py"]
+  "nord-qutebrowser.py"
+]
 
 for f in add_configs:
   config.source(f)
