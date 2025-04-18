@@ -36,6 +36,8 @@
         python3Full
         skimpdf
         spotify
+        texliveFull
+        texlivePackages.enumitem
         tmux
         yadm
         zsh-syntax-highlighting
@@ -44,6 +46,7 @@
       homebrew = {
         enable = true;
         brews = [
+          "python@3.9"
           "koekeishiya/formulae/skhd"
           "koekeishiya/formulae/yabai"
         ];
