@@ -33,6 +33,7 @@
         neovim
         nodejs_23
         obsidian
+        onefetch
         python3Full
         skimpdf
         spotify
