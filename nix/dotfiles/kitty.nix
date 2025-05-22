@@ -7,6 +7,7 @@
     font.name = "FiraCode Nerd Font Mono";
     font.size = 14.0;
     shellIntegration.mode = "no-cursor";
+
     keybindings = {
       "cmd+c"          = "copy_to_clipboard";
       "cmd+v"          = "paste_from_clipboard";
@@ -24,6 +25,7 @@
       "cmd+minus"      = "change_font_size all -2.0";
       "cmd+k"          = "clear_terminal to_cursor active";
     };
+
     settings = {
       clear_all_shortcuts = "yes";
       cursor_stop_blinking_after = 0;
@@ -37,6 +39,7 @@
       paste_actions = "confirm-if-large";
       macos_quit_when_last_window_closed = "yes";
     };
+
     extraConfig = ''
       background #2d2a2e
       foreground #e3e1e4
@@ -85,6 +88,6 @@
       # White
       color7 #e3e1e4
       color15 #e3e1e4
-    ''
+    '';
   };
 }

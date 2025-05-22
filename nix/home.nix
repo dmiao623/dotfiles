@@ -15,9 +15,10 @@
   ];
 
   home.file = {
-    ".config/kitty/theme.conf".source     = ./dotfiles/misc/kitty-theme.conf;
     ".config/neofetch/config.conf".source = ./dotfiles/misc/neofetch.conf;
-    ".config/yabai/yabairc".source        = ./dotfiles/misc/yabai.conf
+    ".config/yabai/yabairc".source        = ./dotfiles/misc/yabai.conf;
+    ".config/yadm/bootstrap".source       = ./dotfiles/misc/yadm-bootstrap.conf;
+    ".config/yadm/encrypt".source         = ./dotfiles/misc/yadm-encrypt.conf;
   };
 
   # You can also manage environment variables but you will have to manually
@@ -33,3 +34,4 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+}

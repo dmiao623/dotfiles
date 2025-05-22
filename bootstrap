@@ -1,7 +1,0 @@
-if ! command -v nix >/dev/null 2>&1; then
-  sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install)
-fi
-
-nix --version
-
-darwin-rebuild switch --flake ~/nix#dustinm
