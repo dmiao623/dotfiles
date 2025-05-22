@@ -2,15 +2,24 @@
   description = "nix-darwin system flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
+
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
+
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, ... }:
   let
     configuration = { pkgs, config, ... }: {
+
+      system.primaryUser = "dustinm";
+
+      ids.gids.nixbld = 350;
 
       nixpkgs.config.allowUnfree = true;
 
@@ -31,7 +40,6 @@
         mkalias
         neofetch
         neovim
-        nodejs_23
         obsidian
         onefetch
         python3Full
@@ -66,8 +74,8 @@
         onActivation.upgrade = true;
       };
 
-      fonts.packages = [
-        pkgs.nerd-fonts.jetbrains-mono
+      fonts.packages = with pkgs; [
+        nerd-fonts.jetbrains-mono
       ];
       
       system.activationScripts.applications.text = let
@@ -91,12 +99,20 @@
             '';
 
       system.defaults = {
-        dock.autohide = true;
-        dock.persistent-apps = [
-          "/Applications/qutebrowser.app"
-          "${pkgs.kitty}/Applications/kitty.app"
-          "${pkgs.spotify}/Applications/spotify.app"
-        ];
+        dock = {
+          autohide = true;
+          persistent-apps = [
+            "/Applications/qutebrowser.app"
+            "${pkgs.kitty}/Applications/kitty.app"
+            "${pkgs.spotify}/Applications/spotify.app"
+          ];
+          show-recents = false;
+        };
+        finder = {
+          AppleShowAllExtensions = true;
+          ShowPathbar = true;
+          FXEnableExtensionChangeWarning = false;
+        };
         NSGlobalDomain.AppleICUForce24HourTime = true;
       };
 
@@ -111,7 +127,7 @@
 
       # Used for backwards compatibility, please read the changelog before changing.
       # $ darwin-rebuild changelog
-      system.stateVersion = 6;
+      system.stateVersion = 3;
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
@@ -119,25 +135,31 @@
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#Dustins-MacBook-Pro
+    # $ darwin-rebuild switch --flake ~/nix#dustinm
     darwinConfigurations."dustinm" = nix-darwin.lib.darwinSystem {
       modules = [
+        ./users.nix
+
         configuration
+
         nix-homebrew.darwinModules.nix-homebrew
         {
           nix-homebrew = {
-            # Install Homebrew under the default prefix
-            enable = true;
-
-            # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
+            enable        = true;
             enableRosetta = true;
-
-            # User owning the Homebrew prefix
-            user = "dustinm";
-
-            # Automatically migrate existing Homebrew installations
-            autoMigrate = true;
+            user          = "dustinm";
+            autoMigrate   = true;
           };
+        }
+
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs   = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.dustinm   = ./home.nix;
+
+          # Optionally, use home-manager.extraSpecialArgs to pass
+          # arguments to home.nix
         }
       ];
     };
