@@ -19,6 +19,8 @@
     ".config/yabai/yabairc".source        = ./dotfiles/misc/yabai.conf;
     ".config/yadm/bootstrap".source       = ./dotfiles/misc/yadm-bootstrap.conf;
     ".config/yadm/encrypt".source         = ./dotfiles/misc/yadm-encrypt.conf;
+    ".qutebrowser/blocked-hosts".source   = ./dotfiles/private/qutebrowser-blocked-hosts;
+    ".qutebrowser/quickmarks".source      = ./dotfiles/private/qutebrowser-quickmarks;
   };
 
   # You can also manage environment variables but you will have to manually
