@@ -12,6 +12,7 @@
   imports = [
     ./dotfiles/kitty.nix
     ./dotfiles/skhd.nix
+    ./dotfiles/qutebrowser.nix
   ];
 
   home.file = {
@@ -21,19 +22,13 @@
     ".config/yadm/encrypt".source         = ./dotfiles/misc/yadm-encrypt.conf;
     ".qutebrowser/blocked-hosts".source   = ./dotfiles/private/qutebrowser-blocked-hosts;
     ".qutebrowser/quickmarks".source      = ./dotfiles/private/qutebrowser-quickmarks;
+    ".simplebarrc".source                 = ./dotfiles/misc/simplebar.json;
   };
 
-  # You can also manage environment variables but you will have to manually
-  # source
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/davish/etc/profile.d/hm-session-vars.sh
-  #
-  # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    LANG = "en_US.UTF-8";
+    VISUAL = "nvim";
+    EDITOR = "nvim";
+    PS1 = "$ ";
   };
 }

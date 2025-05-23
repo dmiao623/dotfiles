@@ -4,14 +4,14 @@
   programs.qutebrowser = {
     enable = true;
 
-    enableDefaultBindings = false;
+    enableDefaultBindings = true;
 
     searchEngines = {
-      DEFAULT: "https://google.com/search?hl=en&q={}";
-      "=": "https://www.wolframalpha.com/input?i={}";
-      "?w": "https://en.wikipedia.org/wiki/{}";
-      "?mynix": "https://mynixos.com/search?q={}";
-      "?nixpkgs": "https://search.nixos.org/packages?channel=25.05&from=0&size=50&sort=relevance&type=packages&query={}";
+      DEFAULT    = "https://google.com/search?hl=en&q={}";
+      "="        = "https://www.wolframalpha.com/input?i={}";
+      "?w"       = "https://en.wikipedia.org/wiki/{}";
+      "?mynix"   = "https://mynixos.com/search?q={}";
+      "?nixpkgs" = "https://search.nixos.org/packages?channel=25.05&from=0&size=50&sort=relevance&type=packages&query={}";
     };
 
     keyBindings = {
@@ -61,29 +61,22 @@
           "about:blank"
         ];
         default_page = "about:blank";
-        searchengines = [
-          {
-            DEFAULT = "https://google.com/search?hl=en&q={}";
-            "="       = "https://www.wolframalpha.com/input?i={}";
-            "?"       = "https://en.wikipedia.org/wiki/{}";
-            pnix      = "https://search.nixos.org/packages?channel=24.05&from=0&size=50&sort=relevance&type=packages&query={}";
-          }
-        ];
-      };
-
-      tabs = {
-        padding = [
-          {
-            bottom = 3;
-            left   = 5;
-            right  = 5;
-            top    = 3;
-          }
-        ];
       };
     };
 
     extraConfig = ''
+      kb_unset = { "normal": ["d", "D", "t"] }
+      for m, ks in kb_unset.items():
+        for k in ks:
+          c.bindings.default[m].pop(k, None)
+
+      c.tabs.padding = {
+        "bottom": 3,
+        "left":   5,
+        "right":  5,
+        "top":    3,
+      }
+
       nord = {
           # Polar Night
           'nord0': '#2e3440',
@@ -420,6 +413,6 @@
       ## color)
       ## Type: QtColor
       # c.colors.webpage.bg = 'white'
-    ''
+    '';
   };
 }

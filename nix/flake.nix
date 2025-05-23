@@ -98,38 +98,41 @@
         done
             '';
 
-      system.defaults = {
-        dock = {
-          autohide = true;
-          persistent-apps = [
-            "/Applications/qutebrowser.app"
-            "${pkgs.kitty}/Applications/kitty.app"
-            "${pkgs.spotify}/Applications/spotify.app"
-          ];
-          show-recents = false;
+      system = {
+        defaults = {
+          dock = {
+            autohide = true;
+            persistent-apps = [
+              "/Applications/qutebrowser.app"
+              "${pkgs.kitty}/Applications/kitty.app"
+              "${pkgs.spotify}/Applications/spotify.app"
+            ];
+            show-recents = false;
+            wvous-bl-corner = 1;
+            wvous-br-corner = 1;
+            wvous-tl-corner = 1;
+            wvous-tr-corner = 1;
+          };
+          finder = {
+            _FXShowPosixPathInTitle        = true;
+            _FXSortFoldersFirst            = true;
+            AppleShowAllExtensions         = true;
+            FXEnableExtensionChangeWarning = false;
+            FXRemoveOldTrashItems          = false;
+            ShowPathbar                    = true;
+            QuitMenuItem                   = true;
+            ShowStatusBar                  = true;
+          };
+          NSGlobalDomain.AppleICUForce24HourTime = true;
         };
-        finder = {
-          AppleShowAllExtensions = true;
-          ShowPathbar = true;
-          FXEnableExtensionChangeWarning = false;
-        };
-        NSGlobalDomain.AppleICUForce24HourTime = true;
+
+        startup.chime = false;
       };
 
-      # Necessary for using flakes on this system.
+
       nix.settings.experimental-features = "nix-command flakes";
-
-      # Enable alternative shell support in nix-darwin.
-      # programs.fish.enable = true;
-
-      # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
-
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
       system.stateVersion = 3;
-
-      # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
     };
   in
