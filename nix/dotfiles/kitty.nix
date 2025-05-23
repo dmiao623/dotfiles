@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   programs.kitty = {
@@ -27,16 +27,16 @@
     };
 
     settings = {
-      clear_all_shortcuts = "yes";
-      cursor_stop_blinking_after = 0;
-      tab_bar_margin_height = "5.0 2.0";
-      tab_bar_style = "separator";
-      tab_switch_strategy = "right";
-      tab_separator = "\" ┇ \"";
-      tab_bar_min_tabs = 1;
-      tab_title_max_length = 30;
-      tab_title_template = "{bell_symbol}{activity_symbol}{fmt.bold}{index}{fmt.nobold}| {title}";
-      paste_actions = "confirm-if-large";
+      clear_all_shortcuts                = "yes";
+      cursor_stop_blinking_after         = 0;
+      tab_bar_margin_height              = "5.0 2.0";
+      tab_bar_style                      = "separator";
+      tab_switch_strategy                = "right";
+      tab_separator                      = "\" ┇ \"";
+      tab_bar_min_tabs                   = 1;
+      tab_title_max_length               = 30;
+      tab_title_template                 = "{bell_symbol}{activity_symbol}{fmt.bold}{index}{fmt.nobold}| {title}";
+      paste_actions                      = "confirm-if-large";
       macos_quit_when_last_window_closed = "yes";
     };
 
