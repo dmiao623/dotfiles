@@ -36,6 +36,10 @@
     };
 
     shellAliases = {
+      la = ''
+        eza --all --color=always --grid --icons=always
+      '';
+
       ls = ''
         eza --color=always --grid --icons=always
       '';
