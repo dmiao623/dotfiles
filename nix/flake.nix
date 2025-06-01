@@ -28,6 +28,7 @@
 
       environment.systemPackages = with pkgs; [
         bat
+        cowsay
         discord
         eza
         fzf

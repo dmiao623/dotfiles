@@ -10,9 +10,11 @@
   programs.home-manager.enable = true;
 
   imports = [
+    ./dotfiles/bat.nix
     ./dotfiles/kitty.nix
     ./dotfiles/skhd.nix
     ./dotfiles/qutebrowser.nix
+    ./dotfiles/zsh.nix
   ];
 
   home.file = {
@@ -25,10 +27,7 @@
     ".simplebarrc".source                 = ./dotfiles/misc/simplebar.json;
   };
 
-  home.sessionVariables = {
-    LANG = "en_US.UTF-8";
-    VISUAL = "nvim";
-    EDITOR = "nvim";
-    PS1 = "$ ";
-  };
+  home.sessionPath = [
+    "/usr/local/smlnj/bin"
+  ];
 }
