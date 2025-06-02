@@ -15,6 +15,7 @@ in
   imports = [
     "${dotfiles}/bat.nix"
     "${dotfiles}/fzf.nix"
+    "${dotfiles}/git.nix"
     "${dotfiles}/kitty.nix"
     "${dotfiles}/qutebrowser.nix"
     "${dotfiles}/skhd.nix"
@@ -26,6 +27,7 @@ in
     ".config/yabai/yabairc".source        = "${dotfiles}/misc/yabai.conf";
     ".config/yadm/bootstrap".source       = "${dotfiles}/misc/yadm-bootstrap.sh";
     ".config/yadm/encrypt".source         = "${dotfiles}/misc/yadm-encrypt.conf";
+    ".hushlogin".source                   = "${dotfiles}/misc/hushlogin";
     ".qutebrowser/blocked-hosts".source   = "${dotfiles}/private/qutebrowser-blocked-hosts";
     ".qutebrowser/quickmarks".source      = "${dotfiles}/private/qutebrowser-quickmarks";
     ".simplebarrc".source                 = "${dotfiles}/misc/simplebar.json";

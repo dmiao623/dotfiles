@@ -44,6 +44,7 @@
         obsidian
         onefetch
         python3Full
+        riffdiff
         skimpdf
         spotify
         texliveFull
