@@ -69,6 +69,8 @@
         echo "Current Directory: $(pwd)"
         ls
       }
+
+      source ~/nix/dotfiles/private/api_keys.sh
       
       neofetch
     '';
