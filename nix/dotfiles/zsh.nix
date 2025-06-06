@@ -71,6 +71,7 @@
       }
 
       source ~/nix/dotfiles/private/api_keys.sh
+      source "/Users/dustinm/Google Drive/My Drive/Academics/Carnegie Mellon University/Miscellaneous/TeX Templates/β/scripts/ttex.sh"
       
       neofetch
     '';
