@@ -42,7 +42,6 @@
         neofetch
         neovim
         obsidian
-        onefetch
         python3Full
         riffdiff
         skimpdf
