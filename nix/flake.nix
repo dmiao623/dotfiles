@@ -50,6 +50,7 @@
         texliveFull
         texlivePackages.enumitem
         tmux
+        uv
         yadm
         zotero
         zsh-syntax-highlighting
