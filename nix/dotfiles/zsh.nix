@@ -33,6 +33,7 @@
       VISUAL = "nvim";
       EDITOR = "nvim";
       PS1 = "$ ";
+      DR = "/Users/dustinm/My Drive/Academics/Carnegie Mellon University/Current Courses";
     };
 
     shellAliases = {

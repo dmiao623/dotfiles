@@ -30,12 +30,12 @@
         anki-bin
         bat
         cowsay
-        discord
         eza
         fzf
         gcc
         git
         htop
+        inkscape
         kitty
         lf
         millet
@@ -47,6 +47,7 @@
         riffdiff
         skimpdf
         spotify
+        sshpass
         texliveFull
         texlivePackages.enumitem
         tmux
@@ -71,7 +72,6 @@
         ];
         masApps = {
           "amphetamine" = 937984704;
-          "goodnotes" = 1444383602;
         };
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
