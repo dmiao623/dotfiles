@@ -43,6 +43,7 @@
         neofetch
         neovim
         obsidian
+        ocaml
         python3Full
         riffdiff
         skimpdf
