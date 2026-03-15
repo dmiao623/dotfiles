@@ -56,8 +56,6 @@
 
       url = {
         start_pages = [
-          "https://calendar.google.com/calendar/u/0/r"
-          "https://calendar.google.com/calendar/u/0/r/tasks"
           "about:blank"
         ];
         default_page = "about:blank";
