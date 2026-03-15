@@ -9,6 +9,8 @@
 
     ignores = [
       ".DS_Store"
+      ".claude/"
+      ".vscode/"
     ];
 
     riff = {
