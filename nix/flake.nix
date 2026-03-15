@@ -29,13 +29,11 @@
       environment.systemPackages = with pkgs; [
         anki-bin
         bat
-        cowsay
+        claude-code
         eza
         fzf
-        gcc
         git
         htop
-        inkscape
         kitty
         lf
         millet
@@ -43,12 +41,10 @@
         neofetch
         neovim
         obsidian
-        ocaml
         python3Full
         riffdiff
         skimpdf
         spotify
-        sshpass
         texliveFull
         texlivePackages.enumitem
         tmux
@@ -64,6 +60,8 @@
           "python@3.9"
           "koekeishiya/formulae/skhd"
           "koekeishiya/formulae/yabai"
+          "opam"
+          "ocaml"
         ];
         casks = [
           "bitwarden"
