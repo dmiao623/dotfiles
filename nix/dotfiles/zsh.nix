@@ -37,11 +37,11 @@
     };
 
     shellAliases = {
-      la = ''
+      a = ''
         eza --all --color=always --grid --icons=always
       '';
 
-      ls = ''
+      s = ''
         eza --color=always --grid --icons=always
       '';
 
@@ -63,7 +63,7 @@
     };
 
     initContent = lib.mkOrder 1500 ''
-      cd() {
+      z() {
         if ! builtin cd "$@"; then
           return 1
         fi
