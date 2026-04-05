@@ -1,5 +1,5 @@
 return {
-  "stevearc/oil.nvim",
+  "dmiao623/oiler.nvim",
   opts = {},
   dependencies = {
     "nvim-tree/nvim-web-devicons",
@@ -15,6 +15,10 @@ return {
           return name == ".DS_Store" -- Hide .DS_Store files
         end,
       },
+      tree = {
+        default_view = "tree",
+        indent = 2,
+      }
     })
   end,
 }

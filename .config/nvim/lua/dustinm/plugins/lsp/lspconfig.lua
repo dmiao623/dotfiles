@@ -42,7 +42,7 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    mason_lspconfig.setup_handlers({
+    mason_lspconfig.setup({ handlers = {
       function(server_name)
         lspconfig[server_name].setup({
           capabilities = capabilities,
@@ -86,6 +86,6 @@ return {
         filetypes = { "sml", "fun" },
         root_dir = lspconfig.util.root_pattern(".git", ".millet_root"),
       })
-    })
+    }})
   end,
 }
