@@ -1,12 +1,12 @@
 return {
-  "dmiao623/oiler.nvim",
+  "dmiao623/oil-tree.nvim",
   opts = {},
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "echasnovski/mini.icons",
   },
   config = function()
-    require("oil").setup({
+    require("oil-tree").setup({
       default_file_explorer = true,
       delete_to_trash = true,
       view_options = {
