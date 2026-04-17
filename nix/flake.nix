@@ -2,14 +2,14 @@
   description = "nix-darwin system flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
 
-    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
 
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
+    # nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -29,7 +29,6 @@
       environment.systemPackages = with pkgs; [
         anki-bin
         bat
-        claude-code
         eza
         fzf
         git
@@ -41,7 +40,7 @@
         neofetch
         neovim
         obsidian
-        python3Full
+        python3
         riffdiff
         skimpdf
         spotify
@@ -65,16 +64,18 @@
         ];
         casks = [
           "bitwarden"
+          "claude-code"
           "karabiner-elements"
           "qutebrowser"
           "smlnj"
         ];
         masApps = {
           "amphetamine" = 937984704;
+          "reMarkable" = 1276493162;
         };
-        onActivation.cleanup = "zap";
-        onActivation.autoUpdate = true;
-        onActivation.upgrade = true;
+        onActivation.cleanup = "none";
+        onActivation.autoUpdate = false;
+        onActivation.upgrade = false;
       };
 
       fonts.packages = with pkgs; [
@@ -85,7 +86,7 @@
         env = pkgs.buildEnv {
           name = "system-applications";
           paths = config.environment.systemPackages;
-          pathsToLink = "/Applications";
+          pathsToLink = [ "/Applications" ];
         };
       in
         pkgs.lib.mkForce ''
