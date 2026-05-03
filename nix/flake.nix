@@ -9,11 +9,25 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
 
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    # nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    oil-tree-nvim = {
+      url = "github:dmiao623/oil-tree.nvim/d73e9a571dd2250dbc51d461bf78d50c06b8eab0";
+      flake = false;
+    };
+
+    cilantro-nvim = {
+      url = "github:dmiao623/cilantro.nvim/413d620c6729a881809c1efd225a7f28fee1714a";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, nixvim, ... }:
   let
     configuration = { pkgs, config, ... }: {
 
@@ -38,7 +52,7 @@
         millet
         mkalias
         neofetch
-        neovim
+        # neovim
         obsidian
         python3
         riffdiff
@@ -67,7 +81,6 @@
           "claude-code"
           "karabiner-elements"
           "qutebrowser"
-          "smlnj"
         ];
         masApps = {
           "amphetamine" = 937984704;
@@ -162,12 +175,15 @@
 
         home-manager.darwinModules.home-manager
         {
-          home-manager.useGlobalPkgs   = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.dustinm   = ./home.nix;
-
-          # Optionally, use home-manager.extraSpecialArgs to pass
-          # arguments to home.nix
+          home-manager.useGlobalPkgs       = true;
+          home-manager.useUserPackages     = true;
+          home-manager.users.dustinm       = ./home.nix;
+          home-manager.backupFileExtension = "bak";
+          home-manager.sharedModules       = [ nixvim.homeModules.nixvim ];
+          home-manager.extraSpecialArgs    = {
+            oilTreeNvim   = inputs.oil-tree-nvim;
+            cilantroNvim  = inputs.cilantro-nvim;
+          };
         }
       ];
     };

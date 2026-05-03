@@ -17,6 +17,7 @@ in
     "${dotfiles}/fzf.nix"
     "${dotfiles}/git.nix"
     "${dotfiles}/kitty.nix"
+    "${dotfiles}/nixvim.nix"
     "${dotfiles}/qutebrowser.nix"
     "${dotfiles}/skhd.nix"
     "${dotfiles}/zsh.nix"
