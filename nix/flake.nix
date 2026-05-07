@@ -61,6 +61,7 @@
         texliveFull
         texlivePackages.enumitem
         tmux
+        unixtools.watch
         uv
         yadm
         zotero
