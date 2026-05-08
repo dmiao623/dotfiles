@@ -33,8 +33,4 @@ in
     ".qutebrowser/quickmarks".source      = "${dotfiles}/private/qutebrowser-quickmarks";
     ".simplebarrc".source                 = "${dotfiles}/misc/simplebar.json";
   };
-
-  home.sessionPath = [
-    "/usr/local/smlnj/bin"
-  ];
 }

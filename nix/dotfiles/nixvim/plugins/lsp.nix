@@ -6,7 +6,6 @@
 
     servers = {
       bashls.enable    = true;
-      clangd.enable    = true;
       cssls.enable     = true;
       html.enable      = true;
       jsonls.enable    = true;
@@ -47,25 +46,18 @@
     '';
 
     postConfig = ''
-      -- Millet (SML) — installed via nix, not managed by nixvim's server list
-      require("lspconfig").millet.setup({
-        cmd = { "millet" },
-        filetypes = { "sml", "fun" },
-        root_dir = require("lspconfig.util").root_pattern(".git", ".millet_root"),
-      })
-
       -- Clangd with custom compile-commands dir
-      require("lspconfig").clangd.setup({
+      vim.lsp.config("clangd", {
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
         cmd = {
           "clangd",
           "--compile-commands-dir=" .. vim.fn.expand("/Users/dustinm/projects/cp/_library"),
           "--header-insertion=never",
         },
-        root_dir = require("lspconfig.util").root_pattern(
-          "compile_commands.json", "compile_flags.txt", ".git"
-        ),
+        filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+        root_markers = { "compile_commands.json", "compile_flags.txt", ".git" },
       })
+      vim.lsp.enable("clangd")
     '';
   };
 }

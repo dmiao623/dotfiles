@@ -49,7 +49,6 @@
         htop
         kitty
         lf
-        millet
         mkalias
         neofetch
         # neovim

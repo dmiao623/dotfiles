@@ -49,11 +49,6 @@
         pattern = [ "*.c0" "*.c1" ];
         command = "set filetype=c";
       }
-      {
-        event = [ "BufRead" "BufNewFile" ];
-        pattern = "*.fun";
-        command = "set filetype=sml";
-      }
     ];
 
     extraConfigLua = ''
