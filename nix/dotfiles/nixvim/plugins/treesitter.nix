@@ -10,7 +10,7 @@
       incremental_selection.enable = false;
       auto_install = false;
       ensure_installed = [
-        "bash" "bibtex" "cpp" "json" "julia" "latex"
+        "bash" "bibtex" "cpp" "json" "julia"
         "lua" "luadoc" "markdown" "markdown_inline"
         "python" "vim" "vimdoc" "yaml"
       ];
